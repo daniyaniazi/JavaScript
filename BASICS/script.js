@@ -677,3 +677,12 @@ document.write('<ul> <li>variables</li> <br>  <li>alerst/prompts/console</li> <b
 //     document.write(index + ":" + value)
 //     document.write("<br>")
 // }
+
+// ARRAY MAP
+var ary = [11, 34, 5, 23, 4];
+var b = ary.map(test);
+document.write(b + "<br>")
+
+function test(x) {
+    return x * 2;
+}
