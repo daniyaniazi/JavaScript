@@ -43,7 +43,7 @@ var val2 = +prompt('enter num 2');
 var ans = calculator(val1, sign, val2);
 document.body.innerHTML += `<br> ANS : ${ans}`;
 
-5
+//5
 
 function sq(num) {
 
