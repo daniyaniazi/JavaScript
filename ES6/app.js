@@ -145,4 +145,128 @@
     };
     user.sayName();
     userES6.sayName();
+
+    // {
+    //     // example
+    //     button.addEvebtListener('click', function() {
+    //         var addFade = () => {
+    //             this.style.display = 'none';
+    //         };
+    //     });
+
+    // }
+}
+
+
+
+
+
+{
+    // DEFAULT PARAMETERS
+    // OLD
+    function mul(x, y) {
+        var a = x || 1;
+        var b = y || 1
+        console.log(a * b);
+    }
+    mul();
+    // if we dont give any parameter it will give Nan
+
+    // ES6
+    const add = (c = 1, d = 1) => {
+        console.log(c + d);
+    }
+    add();
+}
+
+
+{ //Foreach
+    const shoppingList = ['milk', 'cow', 'choco'];
+    shoppingList.forEach((product, index) => {
+        console.log(`${index} : ${product}`);
+    });
+
+    //map
+    //copy of array and modify it
+    const newlist = shoppingList.map(item => {
+        return (item + 'new');
+    });
+    //const newlist = shoppingList.map(item =>item+'new');
+    console.log(newlist);
+
+
+    // filter
+    const filterList = shoppingList.filter(item => {
+        return item !==
+            'cow';
+    });
+    console.log(filterList);
+}
+
+
+
+
+{
+    // CONSTRUCTOR AND CLASSES
+    // old
+    function Person(name, age, hairColor) {
+        this.name = name;
+        this.age = age;
+        this.hairColor = hairColor;
+
+    }
+    Person.prototype.sayName = function() {
+        console.log(`my name is ${this.name}`)
+    };
+    var Ed = new Person('ed', 24, 'black');
+    console.log(Ed)
+    Ed.sayName();
+
+
+    function BillGates(salary, occupation, name, age, hairColor) {
+        Person.call(this, name, age, hairColor);
+        this.salary = salary;
+        this.occupation = occupation;
+    }
+    BillGates.prototype = Object.create(Person.prototype)
+    const person = new BillGates(23000, 'dev', 'billgates', 34, 'black');
+    console.log(person);
+    //we only get properties not functinalities
+    person.sayName();
+
+
+    //ES6
+    class ShoppingList {
+        constructor(items, no) {
+            this.items = items;
+            this.no = no;
+        }
+        sayList() {
+            console.log(this.items)
+        }
+        sayNo() {
+            console.log(`You have Bought ${this.no} items`)
+        }
+    }
+    const myList = new ShoppingList(['milk', 'cow', 'choco'], 3)
+    console.log(myList);
+    myList.sayList();
+    myList.sayNo();
+
+
+    class Product extends ShoppingList {
+        constructor(items, no, amount, cost) {
+            super(items, no);
+            this.amount = amount;
+            this.cost = cost;
+        }
+        sayBill() {
+            console.log(`YOUR BILL IS ${this.amount} Rs`);
+        }
+    }
+    const prod1 = new Product(['bags', 'cups', 'lays', 'redbull'], 4, 5000, 20)
+    console.log(prod1);
+    prod1.sayList();
+    prod1.sayNo();
+    prod1.sayBill();
 }
