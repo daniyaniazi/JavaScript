@@ -1,0 +1,48 @@
+.main {
+    border: 1px solid grey;
+    width: 200px;
+    margin: auto;
+    border-radius: 5px;
+    background-color: rgb(245, 252, 249);
+}
+
+input {
+    border: none;
+    outline: none;
+    /* border-bottom: 1px solid grey; */
+}
+
+#result {
+    width: 100%;
+    box-sizing: border-box;
+    background-color: rgba(211, 255, 240, 0.39);
+}
+
+#clearbtn {
+    width: 100%;
+    margin-bottom: 2px;
+}
+
+div {
+    width: 100%;
+    padding: 0%;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.btn {
+    width: 23.488888%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    margin: auto;
+}
+
+.btn-bottom {
+    width: 48.99%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    margin: auto;
+    margin-top: 2px;
+}
