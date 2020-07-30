@@ -32,4 +32,4 @@ jobs:
     - name: Install Surge
       run: npm install --global surge
     - name: Run Surge
-      run: surge ./ModernJavaScript2020 miniprojectsjsdaniya.surge.sh --token ${{secrets.JSTOKEN}}
+      run: surge ./ miniprojectsjsdaniya.surge.sh --token ${{secrets.JSTOKEN}}
