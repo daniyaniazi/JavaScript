@@ -1,5 +1,6 @@
-let now = new Date();
+let now = new Date(); //Date constructor
 console.log(now)
+console.log(typeof now)
     // From system not from server
 console.log(now.toDateString())
 console.log(now.getDate()) //today date
@@ -29,3 +30,37 @@ futureDate.setHours(14);
 console.log(futureDate)
 
 //eg : flight booking
+//Date is refrence type
+
+//timestamps
+console.log('timestamps:', now.getTime());
+//datetostring 
+console.log(now.toDateString())
+console.log(now.toTimeString())
+console.log(now.toLocaleString())
+
+
+
+// TIMESTAMP AND COMAPRISION
+const before = new Date('February 1 2019 7:30:59 ')
+console.log(now.getTime(), before.getTime())
+
+const diff = now.getTime() - before.getTime()
+console.log('diffrence in milisec', diff)
+
+const mins = Math.round(diff / 1000 / 60) //1000 ms in a sec 
+console.log('diffrence in mins', mins)
+
+const hours = Math.round(mins / 60) // 60 min in 1 hour
+console.log('diffrence in mins', hours)
+
+const days = Math.round(hours / 24) // 24 hours in 1 day
+console.log('diffrence in days', days)
+    //21 jan 1917
+
+console.log(` blog was wrriten ${days} ago`)
+
+
+//converting tipestamp in to date object
+const timestamp = 1548988259000;
+console.log(new Date(timestamp));
