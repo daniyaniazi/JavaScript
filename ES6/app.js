@@ -270,3 +270,24 @@
     prod1.sayNo();
     prod1.sayBill();
 }
+
+ // Spread Operators
+var students1 = ["suneela","neha"]
+var student2 =  [...students1,"Daniya","areeba"]
+
+// Object Destruturing
+var student={
+    name: "Daniya",
+    roll : 26
+}
+let {name,roll}= student;
+console.log(name)
+console.log(school)
+
+// Ternary Operators
+var age= 19
+var check = age>30 ? "Greater than 30" :"less than 30"
+
+var bool = true;
+var name = bool && "If Bool is true render this"
+console.log(name)
