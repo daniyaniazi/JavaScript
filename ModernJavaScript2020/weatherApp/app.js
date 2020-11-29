@@ -5,6 +5,7 @@ const time = document.querySelector('.time');
 const icon = document.querySelector('.icon img');
 let timeSrc = "";
 
+
 //Getting the wheather conditions
 const updateCity = async (city) => {
     const cityDets = await getCity(city);
@@ -59,6 +60,15 @@ cityForm.addEventListener("submit", e => {
         )
         .catch(
             err => console.log(err));
+    localStorage.setItem('city', city)
+});
 
-
-})
+if (localStorage.getItem('city')) {
+    updateCity(localStorage.getItem('city'))
+        .then(data => {
+            updateUI(data)
+        }
+        )
+        .catch(
+            err => console.log(err));
+}
