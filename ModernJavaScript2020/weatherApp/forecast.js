@@ -1,34 +1,36 @@
-const key = "NOh3vdi0UxGubEqSya3FPle0yO8uEwGw";
-// Free Account we can only make 50 request perdsay
-// grt weather information
-const getWeather = async (id) => {
-    const base = 'http://dataservice.accuweather.com/currentconditions/v1/';
-    const query = `${id}?apikey=${key}`;
-    const response = await fetch(base + query);
-    const data = await response.json();
-    // console.log(data);
-    return data[0];
-};
-// getcity information
-const getCity = async (city) => {
-    const base = "http://dataservice.accuweather.com/locations/v1/cities/search";
-    const query = `?apikey=${key}&q=${city}`;
+class Forecast {
+    constructor() {
+        this.key = "NOh3vdi0UxGubEqSya3FPle0yO8uEwGw";
+        this.weatherURL = 'http://dataservice.accuweather.com/currentconditions/v1/';
+        this.cityURL = "http://dataservice.accuweather.com/locations/v1/cities/search";
+    }
 
-    const response = await fetch(base + query);
-    const data = await response.json(); // return promise
+    //Getting the wheather conditions
+    async updateCity(city) {
+        const cityDets = await this.getCity(city);
+        const weather = await this.getWeather(cityDets.Key)
+        return {
+            cityDets,
+            weather
+        }
+    }
+    // getcity information
+    async getCity(city) {
+        const query = `?apikey=${this.key}&q=${city}`;
 
-    // console.log(data[0]);
-    return data[0]; // return promise
+        const response = await fetch(this.cityURL + query);
+        const data = await response.json(); // return promise
 
-};
+        // console.log(data[0]);
+        return data[0]; // return promise
+    }
+    // get weather information
+    async getWeather(id) {
 
-getCity("karachi").then(data => {
-    // console.log(data);
-    return getWeather(data.Key)
-    // return a promise
-}).then(data => {
-    console.log(data)
-}).catch(err => {
-    console.log(err)
-});
-
+        const query = `${id}?apikey=${this.key}`;
+        const response = await fetch(this.weatherURL + query);
+        const data = await response.json();
+        // console.log(data);
+        return data[0];
+    }
+}
